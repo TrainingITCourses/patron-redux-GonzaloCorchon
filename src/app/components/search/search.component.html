@@ -1,0 +1,13 @@
+<div>
+  <select name="filter" (change)="filterChanged($event.target.value)">
+    <option value="">- Seleccionar -</option>
+    <option *ngFor="let item of getDataSource()" [value]="item.id">{{ item.name }}</option>
+  </select>
+
+  <div class="selector">
+    <div><input id="lblAgencies" type="radio" name="searchMode" (change)="searchModeChanged(SearchMode.Agency)" [checked]="mode == SearchMode.Agency" > <label for="lblAgencies">Agencias</label></div>
+    <div><input id="lblMissions" type="radio" name="searchMode" (change)="searchModeChanged(SearchMode.Mission)" [checked]="mode == SearchMode.Mission"> <label for="lblMissions">Tipo de Misión</label></div>
+    <div><input id="lblStatuses" type="radio" name="searchMode" (change)="searchModeChanged(SearchMode.Status)" [checked]="mode == SearchMode.Status"> <label for="lblStatuses">Estado</label></div>
+  </div>
+</div>
+
